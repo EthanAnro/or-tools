@@ -8,7 +8,7 @@ RUN dnf -y update \
 && dnf -y install gcc-c++ cmake \
 && dnf clean all
 
-# .Net Install
+# Install .Net
 # see: https://docs.microsoft.com/en-us/dotnet/core/install/linux-fedora
 RUN dnf -y update \
 && dnf -y install dotnet-sdk-3.1 \
@@ -28,6 +28,6 @@ RUN dotnet_sdk_version=6.0.100 \
 RUN dotnet --info
 
 WORKDIR /root
-ADD or-tools_amd64_fedora-33_v*.tar.gz .
+ADD or-tools_amd64_fedora-33_dotnet_v*.tar.gz .
 
-RUN cd or-tools_*_v* && make test_dotnet
+RUN cd or-tools_*_v* && make test

@@ -12,7 +12,7 @@ ENV CC=gcc CXX=g++
 ENTRYPOINT ["/usr/bin/bash", "-c"]
 CMD ["/usr/bin/bash"]
 
-# .Net Instal
+# Install .Net
 RUN zypper update -y \
 && zypper install -y wget tar gzip libicu-devel
 
@@ -43,6 +43,6 @@ RUN dotnet --info
 #RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /root
-ADD or-tools_amd64_opensuse-leap_v*.tar.gz .
+ADD or-tools_amd64_opensuse-leap_dotnet_v*.tar.gz .
 
-RUN cd or-tools_*_v* && make test_dotnet
+RUN cd or-tools_*_v* && make test

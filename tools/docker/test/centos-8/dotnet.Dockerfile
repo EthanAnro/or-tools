@@ -8,7 +8,7 @@ RUN dnf -y update \
 && dnf clean all \
 && rm -rf /var/cache/dnf
 
-# Install dotnet
+# Install .Net
 # see https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-centos8
 RUN dnf -y update \
 && dnf -y install dotnet-sdk-3.1 dotnet-sdk-6.0 \
@@ -21,6 +21,6 @@ RUN dotnet --info
 #RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /root
-ADD or-tools_amd64_centos-8_v*.tar.gz .
+ADD or-tools_amd64_centos-8_dotnet_v*.tar.gz .
 
-RUN cd or-tools_*_v* && make test_dotnet
+RUN cd or-tools_*_v* && make test

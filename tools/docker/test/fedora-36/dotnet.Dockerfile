@@ -1,4 +1,4 @@
-FROM fedora:35
+FROM fedora:36
 LABEL maintainer="corentinl@google.com"
 
 RUN dnf -y update \
@@ -17,6 +17,6 @@ RUN dnf -y update \
 RUN dotnet --info
 
 WORKDIR /root
-ADD or-tools_amd64_fedora-35_dotnet_v*.tar.gz .
+ADD or-tools_amd64_fedora-36_dotnet_v*.tar.gz .
 
 RUN cd or-tools_*_v* && make test

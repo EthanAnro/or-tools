@@ -6,7 +6,7 @@ RUN apt-get update -qq \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Dotnet install
+# Install .Net
 # see https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2110-
 RUN apt-get update -qq \
 && apt-get install -yq wget apt-transport-https \
@@ -23,6 +23,6 @@ RUN dotnet --info
 #RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /root
-ADD or-tools_amd64_ubuntu-22.04_v*.tar.gz .
+ADD or-tools_amd64_ubuntu-22.04_dotnet_v*.tar.gz .
 
-RUN cd or-tools_*_v* && make test_dotnet
+RUN cd or-tools_*_v* && make test

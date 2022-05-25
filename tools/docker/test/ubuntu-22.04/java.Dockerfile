@@ -15,6 +15,6 @@ RUN apt-get update -qq \
 ENV JAVA_HOME=/usr/lib/jvm/default-java
 
 WORKDIR /root
-ADD or-tools_amd64_ubuntu-22.04_v*.tar.gz .
+ADD or-tools_amd64_ubuntu-22.04_java_v*.tar.gz .
 
-RUN cd or-tools_*_v* && make test_java
+RUN cd or-tools_*_v* && make test
